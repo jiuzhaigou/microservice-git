@@ -1,0 +1,26 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiuzhaigou/microservice-git    # 配置git仓库的地址
+          search-paths: config-repo                        # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username: jiuzhaigou                                                  # git仓库的账号
+          password:  1qaz2wsx                                                  # git仓库的密码
+      label: master
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/    # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
